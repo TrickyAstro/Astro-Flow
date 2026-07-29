@@ -35,6 +35,7 @@
 /* ---------- Reset ---------- */
 html {
     scrollbar-gutter: stable;
+    overflow-x: hidden;
 }
 
 * {
@@ -338,7 +339,7 @@ nav {
 }
 
 /* ---------- Buttons ---------- */
-a.nrml-btn {
+.nrml-btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -355,13 +356,13 @@ a.nrml-btn {
     transition: background 0.3s ease;
 }
 
-a.nrml-btn:hover {
+.nrml-btn:hover {
     background:
         linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)) padding-box,
         linear-gradient(to right, var(--primary-color), var(--secondary-color)) border-box;
 }
 
-a.nrml-btn:active {
+.nrml-btn:active {
     background:
         linear-gradient(transparent, transparent) padding-box,
         linear-gradient(to right, var(--primary-color), var(--secondary-color)) border-box;
@@ -400,6 +401,8 @@ a.nrml-btn:active {
     justify-content: center;
     flex: 1;
     min-width: 0;
+    overflow-x: clip;
+    overflow-y: visible;
 }
 
 .laptop-img {
@@ -488,6 +491,8 @@ a.nrml-btn:active {
     transform: translateX(25vw);
     padding: 90px 24px;
     container-type: inline-size;
+    max-width: 100%;
+    background-color: transparent;
 }
 
 .process h3,
@@ -983,6 +988,132 @@ footer {
     opacity: 1;
 }
 
+/* ---------- Contact Form ---------- */
+.overall-container {
+    display: flex;
+    flex-direction: row;
+    gap: 60px;
+    padding: 120px 40px;
+}
+
+.form {
+    flex: 1;
+    max-width: 560px;
+}
+
+.form form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-row {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
+}
+
+.form-group label {
+    font-size: 0.95rem;
+    color: var(--white);
+    opacity: 0.85;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    background-color: var(--black);
+    border: 1px solid var(--gray);
+    border-radius: 8px;
+    padding: 12px 14px;
+    color: var(--white);
+    font-family: 'Exo 2', sans-serif;
+    font-size: 0.95rem;
+}
+
+.form-group select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    padding-right: 40px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8' fill='none'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%2389838A' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    cursor: pointer;
+}
+
+.form-group select option {
+    color: var(--black);
+    background-color: var(--white);
+}
+
+.form-group textarea {
+    resize: vertical;
+    padding-bottom: 28px;
+}
+
+.textarea-wrapper {
+    position: relative;
+    display: flex;
+}
+
+.textarea-wrapper textarea {
+    width: 100%;
+}
+
+.char-count {
+    position: absolute;
+    right: 14px;
+    bottom: 10px;
+    font-size: 0.75rem;
+    color: var(--gray);
+    pointer-events: none;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: var(--gray);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus,
+.form-group input:not([type="file"]):not(#business-name):valid,
+.form-group select:valid,
+.form-group textarea:valid,
+.form-group input[type="file"].has-file,
+.form-group #business-name:not(:placeholder-shown) {
+    outline: none;
+    border: 1px solid transparent;
+    background:
+        linear-gradient(var(--black), var(--black)) padding-box,
+        linear-gradient(to right, var(--primary-color), var(--secondary-color)) border-box;
+}
+
+.form button.nrml-btn {
+    align-self: flex-start;
+    font-family: 'Exo 2', sans-serif;
+    cursor: pointer;
+}
+
+.form button.nrml-btn:hover {
+    background:
+        linear-gradient(var(--black), var(--black)) padding-box,
+        linear-gradient(to right, var(--primary-color), var(--secondary-color)) border-box;
+}
+
+.form form:valid button.nrml-btn {
+    background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+    color: var(--black);
+}
+
 /* ==========================================================================
    Responsive breakpoints
    Base styles above are tuned for the 1280x800 design.
@@ -1052,7 +1183,7 @@ footer {
         gap: 26px;
     }
 
-    a.nrml-btn {
+    .nrml-btn {
         height: 52px;
         gap: 12px;
         padding: 12px 18px;
@@ -1719,5 +1850,19 @@ footer {
 
     .socials img {
         height: 34px;
+    }
+
+    .overall-container {
+        flex-direction: column;
+        padding: 80px 20px;
+    }
+
+    .form {
+        max-width: 100%;
+    }
+
+    .form-row {
+        flex-direction: column;
+        gap: 20px;
     }
 }

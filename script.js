@@ -1,21 +1,21 @@
 document.addEventListener('DOMContentLoaded', () => {
     const indicator = document.querySelector('.scroll-indicator');
-    if (!indicator) return;
+    if (indicator) {
+        const hideOnScroll = () => {
+            if (window.scrollY > 0) {
+                const currentOpacity = getComputedStyle(indicator).opacity;
+                indicator.style.animation = 'none';
+                indicator.style.opacity = currentOpacity;
+                void indicator.offsetWidth;
+                requestAnimationFrame(() => {
+                    indicator.classList.add('is-hidden');
+                });
+                window.removeEventListener('scroll', hideOnScroll);
+            }
+        };
 
-    const hideOnScroll = () => {
-        if (window.scrollY > 0) {
-            const currentOpacity = getComputedStyle(indicator).opacity;
-            indicator.style.animation = 'none';
-            indicator.style.opacity = currentOpacity;
-            void indicator.offsetWidth;
-            requestAnimationFrame(() => {
-                indicator.classList.add('is-hidden');
-            });
-            window.removeEventListener('scroll', hideOnScroll);
-        }
-    };
-
-    window.addEventListener('scroll', hideOnScroll, { passive: true });
+        window.addEventListener('scroll', hideOnScroll, { passive: true });
+    }
 
     const revealOnScroll = (elements, options = { threshold: 0.2 }) => {
         if (!elements.length) return;
@@ -56,6 +56,40 @@ document.addEventListener('DOMContentLoaded', () => {
 
         window.addEventListener('scroll', checkProcessReveal, { passive: true });
         checkProcessReveal();
+    }
+
+    const phoneField = document.getElementById('phone');
+    if (phoneField) {
+        phoneField.addEventListener('input', () => {
+            const digits = phoneField.value.replace(/\D/g, '').slice(0, 10);
+            let formatted = digits;
+            if (digits.length > 6) {
+                formatted = `(${digits.slice(0, 3)}) ${digits.slice(3, 6)}-${digits.slice(6)}`;
+            } else if (digits.length > 3) {
+                formatted = `(${digits.slice(0, 3)}) ${digits.slice(3)}`;
+            } else if (digits.length > 0) {
+                formatted = `(${digits}`;
+            }
+            phoneField.value = formatted;
+        });
+    }
+
+    const fileInput = document.getElementById('file-upload');
+    if (fileInput) {
+        fileInput.addEventListener('change', () => {
+            fileInput.classList.toggle('has-file', fileInput.files.length > 0);
+        });
+    }
+
+    const commentsField = document.getElementById('comments');
+    const charCount = document.getElementById('comments-char-count');
+    if (commentsField && charCount) {
+        const maxLength = commentsField.maxLength;
+        const updateCharCount = () => {
+            charCount.textContent = `${commentsField.value.length} / ${maxLength}`;
+        };
+        commentsField.addEventListener('input', updateCharCount);
+        updateCharCount();
     }
 
 // hamburger / mobile slide-nav (tablet + phone)
@@ -102,11 +136,14 @@ document.addEventListener('DOMContentLoaded', () => {
 (function () {
   var layers = Array.prototype.slice.call(document.querySelectorAll('.star-layer'));
   var ticking = false;
+  var mobileQuery = window.matchMedia('(max-width: 600px)');
+  var mobileFactor = 0.35;
 
   function update() {
     var y = window.scrollY || window.pageYOffset;
+    var factor = mobileQuery.matches ? mobileFactor : 1;
     layers.forEach(function (layer) {
-      var speed = parseFloat(layer.getAttribute('data-speed'));
+      var speed = parseFloat(layer.getAttribute('data-speed')) * factor;
       layer.style.transform = 'translateY(' + (y * speed) + 'px)';
     });
     ticking = false;
