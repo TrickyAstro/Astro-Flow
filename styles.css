@@ -356,10 +356,12 @@ nav {
     transition: background 0.3s ease;
 }
 
-.nrml-btn:hover {
-    background:
-        linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)) padding-box,
-        linear-gradient(to right, var(--primary-color), var(--secondary-color)) border-box;
+@media (hover: hover) {
+    .nrml-btn:hover {
+        background:
+            linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)) padding-box,
+            linear-gradient(to right, var(--primary-color), var(--secondary-color)) border-box;
+    }
 }
 
 .nrml-btn:active {
@@ -919,10 +921,12 @@ a.text-link {
     transform: scale(1.5);
 }
 
-a.nrml-btn.light:hover {
-    background:
-        linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6)) padding-box,
-        linear-gradient(to right, var(--primary-color), var(--secondary-color)) border-box;
+@media (hover: hover) {
+    a.nrml-btn.light:hover {
+        background:
+            linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6)) padding-box,
+            linear-gradient(to right, var(--primary-color), var(--secondary-color)) border-box;
+    }
 }
 
 a.nrml-btn.light:active {
@@ -1186,10 +1190,12 @@ footer {
     cursor: pointer;
 }
 
-.form button.nrml-btn:hover {
-    background:
-        linear-gradient(var(--black), var(--black)) padding-box,
-        linear-gradient(to right, var(--primary-color), var(--secondary-color)) border-box;
+@media (hover: hover) {
+    .form button.nrml-btn:hover {
+        background:
+            linear-gradient(var(--black), var(--black)) padding-box,
+            linear-gradient(to right, var(--primary-color), var(--secondary-color)) border-box;
+    }
 }
 
 .form form:valid button.nrml-btn {
@@ -1821,7 +1827,7 @@ footer {
 
     .scroll-indicator {
         animation: scroll-indicator-in 0.6s ease-out 5s forwards;
-        bottom: 50px;
+        bottom: 80px;
     }
 
     .process {
