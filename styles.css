@@ -1348,9 +1348,10 @@ footer {
 
     .planet,
     .planet-backdrop {
-        transform: scale(2);
-        left: 1200px;
-        top: 560px;
+        width: 4146px;
+        height: 3998px;
+        left: 163.5px;
+        top: -439.5px;
     }
 
     .laptop-img {
