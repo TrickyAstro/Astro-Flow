@@ -403,8 +403,6 @@ nav {
     justify-content: center;
     flex: 1;
     min-width: 0;
-    overflow-x: clip;
-    overflow-y: visible;
 }
 
 .laptop-img {
@@ -1289,6 +1287,11 @@ footer {
         margin-left: 38px;
     }
 
+    .hero-art {
+        align-self: stretch;
+        overflow-y: visible;
+    }
+
     .divider {
         width: 416px;
         margin-bottom: 20px;
@@ -1346,7 +1349,7 @@ footer {
     .planet,
     .planet-backdrop {
         transform: scale(2);
-        left: 1600px;
+        left: 1000px;
         top: 560px;
     }
 
