@@ -37,18 +37,18 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const aboutTeaser = document.querySelector('.about-teaser');
-    if (aboutTeaser) revealOnScroll([aboutTeaser]);
+    if (aboutTeaser) revealOnScroll([aboutTeaser], { threshold: 0.5 });
 
     revealOnScroll(Array.from(document.querySelectorAll('.project-card')), {
-        threshold: 0.2,
-        rootMargin: '0px 0px -7% 0px',
+        threshold: 0.4,
+        rootMargin: '0px 0px -20% 0px',
     });
 
     const process = document.querySelector('.process');
     if (process) {
         const checkProcessReveal = () => {
             const rect = process.getBoundingClientRect();
-            if (rect.bottom <= window.innerHeight + 50 && rect.bottom > 0) {
+            if (rect.top <= window.innerHeight * 0.25 && rect.bottom > 0) {
                 process.classList.add('is-visible');
                 window.removeEventListener('scroll', checkProcessReveal);
             }
