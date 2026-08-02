@@ -6,6 +6,7 @@
     --black: #191716;
     --white: #FFFFFF;
     --gray: #89838A;
+    --error: #dd1d2d;
 }
 
 @property --gradient-angle {
@@ -82,6 +83,7 @@ h3 { font-size: 96px; }
 h4 { font-size: 48px; }
 h5 { font-size: 32px; }
 h6 { font-size: 20px; }
+p { font-size: 18px; }
 
 /* ---------- Nav ---------- */
 header {
@@ -995,7 +997,13 @@ footer {
     display: flex;
     flex-direction: row;
     gap: 60px;
-    padding: 120px 40px;
+    max-width: 1200px;
+    height: min-content;
+    padding: 40px;
+    margin: 50px auto;
+    background-color: var(--white);
+    color: var(--black);
+    border-radius: 25px;
 }
 
 .form {
@@ -1016,6 +1024,7 @@ footer {
 }
 
 .form-group {
+    position: relative;
     display: flex;
     flex-direction: column;
     gap: 8px;
@@ -1023,9 +1032,13 @@ footer {
 }
 
 .form-group label {
-    font-size: 0.95rem;
-    color: var(--white);
+    font-size: 1rem;
+    color: var(--black);
     opacity: 0.85;
+}
+
+.required-mark {
+    color: var(--error);
 }
 
 .form-group input:not([type="checkbox"]):not([type="radio"]),
@@ -1037,7 +1050,7 @@ footer {
     padding: 12px 14px;
     color: var(--white);
     font-family: 'Exo 2', sans-serif;
-    font-size: 0.95rem;
+    font-size: 1rem;
 }
 
 .form-group select {
@@ -1045,10 +1058,19 @@ footer {
     -webkit-appearance: none;
     -moz-appearance: none;
     padding-right: 40px;
+    line-height: 1.4;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8' fill='none'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%2389838A' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-position: right 14px center;
     cursor: pointer;
+}
+
+.form-group select:has(option[value=""]:checked) {
+    color: var(--gray);
+}
+
+.form-group input[type="file"]:not(.has-file) {
+    color: var(--gray);
 }
 
 .form-group select option {
@@ -1098,6 +1120,55 @@ footer {
     background:
         linear-gradient(var(--black), var(--black)) padding-box,
         linear-gradient(to right, var(--primary-color), var(--secondary-color)) border-box;
+    box-shadow:
+        0 0 14px 1px rgba(236, 136, 247, 0.35),
+        0 0 14px 1px rgba(99, 210, 255, 0.25);
+}
+
+.form-group input:not([type="checkbox"]):not([type="radio"]):user-invalid:not(:focus),
+.form-group select:user-invalid:not(:focus),
+.form-group textarea:user-invalid:not(:focus) {
+    border: 1px solid var(--error);
+}
+
+.field-error {
+    visibility: hidden;
+    color: var(--error);
+    font-size: 0.8rem;
+}
+
+.form-group > .field-error,
+.form-group > .field-error-group {
+    position: absolute;
+    top: 105%;
+    left: 6px;
+    margin-top: -2px;
+}
+
+.field-error-group {
+    display: grid;
+}
+
+.field-error-group .field-error {
+    grid-area: 1 / 1;
+}
+
+.form-group:has(input:not([type="checkbox"]):not([type="radio"]):not([type="email"]):user-invalid:not(:focus)) .field-error,
+.form-group:has(select:user-invalid:not(:focus)) .field-error,
+.form-group:has(textarea:user-invalid:not(:focus)) .field-error {
+    visibility: visible;
+}
+
+.form-group:has(#email:user-invalid:not(:focus):placeholder-shown) .field-error--required {
+    visibility: visible;
+}
+
+.form-group:has(#email:user-invalid:not(:placeholder-shown)) .field-error--format {
+    visibility: visible;
+}
+
+.form-group:has(#looking-for-check:user-invalid) .field-error {
+    visibility: visible;
 }
 
 .checkbox-fieldset,
@@ -1109,16 +1180,17 @@ footer {
 
 .checkbox-fieldset legend,
 .radio-fieldset legend {
-    font-size: 0.95rem;
-    color: var(--white);
+    font-size: 1rem;
+    color: var(--black);
     opacity: 0.85;
     padding: 0;
     margin-bottom: 4px;
 }
 
 .fieldset-hint {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     color: var(--gray);
+    margin-top: -4px;
     margin-bottom: 8px;
 }
 
@@ -1134,8 +1206,8 @@ footer {
     display: flex;
     align-items: center;
     gap: 8px;
-    font-size: 0.95rem;
-    color: var(--white);
+    font-size: 1rem;
+    color: var(--black);
     cursor: pointer;
 }
 
@@ -1183,58 +1255,83 @@ footer {
 }
 
 .form button.nrml-btn {
-    align-self: flex-start;
+    position: relative;
+    align-self: center;
+    height: 66px;
+    gap: 15px;
+    padding: 15px 22px;
+    font-size: 30px;
+    color: var(--black);
+    background: var(--white);
+    border: none;
     font-family: 'Exo 2', sans-serif;
-    cursor: pointer;
+    cursor: not-allowed;
+    opacity: 0.5;
+    transition: background 0.3s ease, transform 0.15s ease, opacity 0.3s ease;
 }
 
-@media (hover: hover) {
-    .form button.nrml-btn:hover {
-        background:
-            linear-gradient(var(--black), var(--black)) padding-box,
-            linear-gradient(to right, var(--primary-color), var(--secondary-color)) border-box;
-    }
+.form button.nrml-btn::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+}
+
+.form form:valid button.nrml-btn:active:not(:disabled) {
+    transform: scale(0.9);
+}
+
+.form button.nrml-btn:disabled {
+    cursor: not-allowed;
 }
 
 .form form:valid button.nrml-btn {
     background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
     color: var(--black);
+    cursor: pointer;
+    opacity: 1;
+}
+
+.form form:valid button.nrml-btn::before {
+    display: none;
+}
+
+.form-group input:disabled,
+.form-group select:disabled,
+.form-group textarea:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
 }
 
 .contact-text {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 40px;
     flex: 1;
     max-width: 420px;
     padding-top: 20px;
 }
-
-.contact-text h3 {
-    font-size: 2.5rem;
-}
-
-.contact-text > p {
-    font-size: 1.05rem;
-    opacity: 0.9;
-}
-
-.contact-text p a {
+.contact-text h6 a {
     color: var(--primary-color);
     text-decoration: none;
 }
 
-.contact-response h4 {
-    color: var(--primary-color);
+.contact-response h6 {
+    color: var(--black);
     text-decoration: underline;
     font-weight: 500;
-    font-size: 0.95rem;
     margin-bottom: 4px;
 }
 
 .contact-response p {
-    font-size: 0.9rem;
-    opacity: 0.85;
+    opacity: 0.9;
 }
 
 /* ==========================================================================
@@ -1245,13 +1342,6 @@ footer {
    - Phone: ≤600px
    ========================================================================== */
 
-/* ---------- Planet: shifts right continuously below 1280px ----------
-   Native SVG size is never touched (no width/height override) — only its
-   position changes. As the viewport narrows past 1280px, this shifts the
-   planet further right, so the same slice of its silhouette stays anchored
-   in view instead of the whole shape sliding uniformly with the container.
-   Tune the 0.5 multiplier to taste — higher = shifts right faster.
-------------------------------------------------------------------------- */
 @media (max-width: 1280px) {
     .planet,
     .planet-backdrop {

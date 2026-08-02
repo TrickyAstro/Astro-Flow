@@ -123,38 +123,45 @@
     <main>
         <div class="overall-container">
             <div class="contact-text">
-                <h3>Begin Countdown!</h3>
-                <p>You&rsquo;ve got the vision; we&rsquo;ve got the rocket fuel! Whether you are building a brand and website from scratch or just need some fresh adjustments to what you already have, we can help. Tell us what you're building and let's make something out of this world.</p>
-                <p>Prefer to talk in person? Call <a href="tel:3855826609">385-582-6609</a> or <a href="#">Schedule a 20-Min Online Meeting</a></p>
+                <h4>Begin Countdown!</h4>
+                <p>You&rsquo;ve got the vision; we&rsquo;ve got the rocket fuel! Whether you are building a brand and website from scratch, or just need some fresh adjustments to what you already have, we can help. Tell us what you're building and let's make something out of this world!</p>
+                <h6>Prefer to talk in person? Call <a href="tel:3855826609">385-582-6609</a> or <a href="#">Schedule a 20-Min Online Meeting</a></h6>
                 <div class="contact-response">
-                    <h4>Response Time</h4>
+                    <h6>Response Time</h6>
                     <p>We reply to every inquiry within 1&ndash;2 business days.</p>
                 </div>
             </div>
 
             <div class="form">
-                <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" enctype="multipart/form-data">
+                <form id="contact-form" action="https://formsubmit.co/ajax/contact@astroflowdesign.com" method="POST" enctype="multipart/form-data">
                     <input type="hidden" name="_subject" value="New project inquiry from AstroFlow website" />
 
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="first-name">First Name</label>
+                            <label for="first-name">First Name <span class="required-mark">*</span></label>
                             <input type="text" id="first-name" name="first_name" placeholder="Jane" maxlength="50" required />
+                            <span class="field-error">Please complete this required field.</span>
                         </div>
                         <div class="form-group">
-                            <label for="last-name">Last Name</label>
+                            <label for="last-name">Last Name <span class="required-mark">*</span></label>
                             <input type="text" id="last-name" name="last_name" placeholder="Doe" maxlength="50" required />
+                            <span class="field-error">Please complete this required field.</span>
                         </div>
                     </div>
 
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="email">Email</label>
+                            <label for="email">Email <span class="required-mark">*</span></label>
                             <input type="email" id="email" name="email" placeholder="jane@example.com" required />
+                            <span class="field-error-group">
+                                <span class="field-error field-error--required">Please complete this required field.</span>
+                                <span class="field-error field-error--format">Email must be formatted correctly.</span>
+                            </span>
                         </div>
                         <div class="form-group">
-                            <label for="phone">Phone Number</label>
+                            <label for="phone">Phone Number <span class="required-mark">*</span></label>
                             <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567" inputmode="numeric" maxlength="14" pattern="\(\d{3}\) \d{3}-\d{4}" title="(555) 123-4567" required />
+                            <span class="field-error">Please complete this required field.</span>
                         </div>
                     </div>
 
@@ -165,11 +172,11 @@
 
                     <div class="form-row">
                         <fieldset class="form-group checkbox-fieldset">
-                            <legend>What are you looking for?</legend>
+                            <legend>What can we do for you? <span class="required-mark">*</span></legend>
                             <p class="fieldset-hint">Select all that apply</p>
                             <div class="checkbox-group">
                                 <label class="checkbox-option">
-                                    <input type="checkbox" name="looking_for" value="Brand Identity" />
+                                    <input type="checkbox" id="looking-for-check" name="looking_for" value="Brand Identity" />
                                     <span>Brand Identity</span>
                                 </label>
                                 <label class="checkbox-option">
@@ -189,6 +196,7 @@
                                     <span>Other</span>
                                 </label>
                             </div>
+                            <span class="field-error">Please select at least one option.</span>
                         </fieldset>
 
                         <fieldset class="form-group radio-fieldset">
@@ -196,7 +204,7 @@
                             <p class="fieldset-hint">We'll plan around your timeline</p>
                             <div class="radio-group">
                                 <label class="radio-option">
-                                    <input type="radio" name="timeline" value="ASAP" required />
+                                    <input type="radio" name="timeline" value="ASAP" />
                                     <span>ASAP</span>
                                 </label>
                                 <label class="radio-option">
@@ -218,7 +226,7 @@
                     <div class="form-group">
                         <label for="budget">Project Budget</label>
                         <p class="fieldset-hint">Struggling with your project budget? Don't sweat it. We'll help you scope it out.</p>
-                        <select id="budget" name="budget" required>
+                        <select id="budget" name="budget">
                             <option value="" disabled selected>Select a budget range</option>
                             <option value="500-1000">$500 - $1,000</option>
                             <option value="1000-2000">$1,000 - $2,000</option>
@@ -232,7 +240,7 @@
                     <div class="form-group">
                         <label for="comments">Comments</label>
                         <div class="textarea-wrapper">
-                            <textarea id="comments" name="message" placeholder="Tell us about your project..." cols="40" rows="6" maxlength="2000" required></textarea>
+                            <textarea id="comments" name="message" placeholder="Tell us about your project..." cols="40" rows="6" maxlength="2000"></textarea>
                             <span class="char-count" id="comments-char-count">0 / 2000</span>
                         </div>
                     </div>
@@ -252,6 +260,29 @@
             </div>
         </div>
     </main>
+
+    <footer>
+        <div class="footer-brand">
+            <div class="socials">
+                <a href="#" aria-label="LinkedIn"><img src="Images/linkdin.svg" alt="" /></a>
+                <a href="#" aria-label="Facebook"><img src="Images/facebook.svg" alt="" /></a>
+            </div>
+        </div>
+
+        <div class="footer-cols">
+        <div class="footer-col">
+            <h4>Company</h4>
+            <a href="about.html">About Us</a>
+            <a href="work.html">Work</a>
+        </div>
+
+        <div class="footer-col">
+            <h4>Contact</h4>
+            <a href="mailto:Business@Astroflow.com">Business@Astroflow.com</a>
+            <a href="tel:3855826609">385-582-6609</a>
+        </div>
+        </div>
+    </footer>
 
     <script src="script.js"></script>
 </body>

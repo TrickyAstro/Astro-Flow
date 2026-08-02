@@ -81,6 +81,17 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    const lookingForCheckboxes = document.querySelectorAll('input[name="looking_for"]');
+    const lookingForAnchor = document.getElementById('looking-for-check');
+    if (lookingForCheckboxes.length && lookingForAnchor) {
+        const updateLookingForValidity = () => {
+            const anyChecked = Array.from(lookingForCheckboxes).some((cb) => cb.checked);
+            lookingForAnchor.setCustomValidity(anyChecked ? '' : 'Please select at least one option.');
+        };
+        lookingForCheckboxes.forEach((cb) => cb.addEventListener('change', updateLookingForValidity));
+        updateLookingForValidity();
+    }
+
     const commentsField = document.getElementById('comments');
     const charCount = document.getElementById('comments-char-count');
     if (commentsField && charCount) {
@@ -90,6 +101,37 @@ document.addEventListener('DOMContentLoaded', () => {
         };
         commentsField.addEventListener('input', updateCharCount);
         updateCharCount();
+    }
+
+    const contactForm = document.getElementById('contact-form');
+    if (contactForm) {
+        const submitBtn = contactForm.querySelector('button[type="submit"]');
+
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            if (!contactForm.checkValidity()) {
+                contactForm.reportValidity();
+                return;
+            }
+
+            submitBtn.disabled = true;
+
+            fetch(contactForm.action, {
+                method: contactForm.method,
+                body: new FormData(contactForm),
+                headers: { Accept: 'application/json' },
+            })
+                .then((response) => {
+                    if (!response.ok) throw new Error('Submission failed');
+                    submitBtn.textContent = 'Form Sent ✓';
+                    Array.from(contactForm.elements).forEach((el) => {
+                        el.disabled = true;
+                    });
+                })
+                .catch(() => {
+                    submitBtn.disabled = false;
+                });
+        });
     }
 
 // hamburger / mobile slide-nav (tablet + phone)
