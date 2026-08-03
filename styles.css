@@ -1,5 +1,3 @@
-/* ------Laptop Breakpoint------ */
-
 :root {
     --primary-color: #EC88F7;
     --secondary-color: #63D2FF;
@@ -129,8 +127,7 @@ nav {
     text-decoration: underline;
 }
 
-/* ---------- Hamburger / mobile nav (tablet + phone only — see the display toggle in
-   the tablet breakpoint below) ---------- */
+/* ---------- Hamburger / mobile nav ---------- */
 .hamburger {
     display: none;
     flex-direction: column;
@@ -1111,6 +1108,25 @@ footer {
     color: var(--gray);
 }
 
+.form-group input:-webkit-autofill,
+.form-group input:-webkit-autofill:hover,
+.form-group input:-webkit-autofill:focus,
+.form-group select:-webkit-autofill,
+.form-group textarea:-webkit-autofill {
+    -webkit-text-fill-color: var(--white);
+    -webkit-box-shadow: 0 0 0 1000px var(--black) inset;
+    box-shadow: 0 0 0 1000px var(--black) inset;
+    caret-color: var(--white);
+    transition: background-color 9999s ease-in-out 0s, color 9999s ease-in-out 0s;
+}
+
+.form-group input:autofill,
+.form-group select:autofill,
+.form-group textarea:autofill {
+    background-color: var(--black);
+    color: var(--white);
+}
+
 .form-group input:not([type="checkbox"]):not([type="radio"]):focus,
 .form-group select:focus,
 .form-group textarea:focus,
@@ -1338,13 +1354,7 @@ footer {
     opacity: 0.9;
 }
 
-/* ==========================================================================
-   Responsive breakpoints
-   Base styles above are tuned for the 1280x800 design.
-   - Large screens: >1700px
-   - Tablet: 601px–1280px
-   - Phone: ≤600px
-   ========================================================================== */
+/* ---------- Responsive breakpoints ---------- */
 
 @media (max-width: 1280px) {
     .planet,
@@ -1353,10 +1363,7 @@ footer {
     }
 }
 
-/* ---------- Large screens (min-width: 1701px) ----------
-   Scales up the key content blocks so the layout doesn't read as small
-   elements floating in too much empty space on very wide monitors.
-------------------------------------------------------------------------- */
+/* ---------- Large screens (min-width: 1701px) ---------- */
 @media (min-width: 1701px) {
     nav {
         height: 78px;
@@ -1663,17 +1670,10 @@ footer {
         display: none;
     }
 
-    /* rocket's centering formula assumes desktop column widths, which
-       stop holding once .contact-text/.form start flex-shrinking below
-       their max-width here — hide it rather than let it drift */
     .rocket-wrap {
         display: none;
     }
 
-    /* on launch, override the hidden resting state: force it visible and
-       start it just below the viewport so the same rocket-launch keyframe
-       (translateY(-160vh)) carries it from off-screen bottom to off-screen
-       top, since there's no in-layout resting position to animate from here */
     .rocket-wrap.is-launching {
         display: block;
         position: fixed;
@@ -2119,11 +2119,8 @@ footer {
     }
 }
 
-/*
-the css is a bit of a mess. i will clean it all up later.
-*/
 @layer rocket {
-	/* ROCKET SYSTEM */
+	/* ---------- Rocket system ---------- */
 	.rocket-wrap {
 		--form-left: calc(var(--content-padding) + var(--contact-text-width) + var(--column-gap));
 		--rocket-width: 400px;
@@ -2165,7 +2162,7 @@ the css is a bit of a mess. i will clean it all up later.
 		}
 	}
 
-	/* LAUNCH */
+	/* ---------- Launch ---------- */
 	.rocket-wrap.is-launching {
 		z-index: 50;
 		animation: rocket-launch 3s cubic-bezier(0.55, 0, 0.85, 0.35) forwards;
@@ -2226,7 +2223,7 @@ the css is a bit of a mess. i will clean it all up later.
 		}
 	}
 
-	/* SMOKE */
+	/* ---------- Smoke ---------- */
 	.rocket-smoke {
 		position: absolute;
 		z-index: 3;
