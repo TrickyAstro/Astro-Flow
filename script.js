@@ -127,11 +127,40 @@ document.addEventListener('DOMContentLoaded', () => {
                     Array.from(contactForm.elements).forEach((el) => {
                         el.disabled = true;
                     });
+
+                    const rocketWrap = document.querySelector('.rocket-wrap');
+                    if (rocketWrap) {
+                        const isVisible = rocketWrap.offsetParent !== null;
+                        if (isVisible) {
+                            // desktop: it's actually laid out, so capture its
+                            // real position for a seamless takeoff
+                            const rect = rocketWrap.getBoundingClientRect();
+                            rocketWrap.style.position = 'fixed';
+                            rocketWrap.style.left = `${rect.left}px`;
+                            rocketWrap.style.top = `${rect.top}px`;
+                            rocketWrap.style.bottom = 'auto';
+                            rocketWrap.style.margin = '0';
+                            void rocketWrap.offsetHeight;
+                        }
+                        // tablet/phone: it's display:none at rest, so let the
+                        // media-query override define its launch position instead
+                        rocketWrap.classList.add('is-launching');
+                    }
                 })
                 .catch(() => {
                     submitBtn.disabled = false;
                 });
         });
+
+        const rocket = document.querySelector('.rocket');
+        if (rocket) {
+            let typingTimeout;
+            contactForm.addEventListener('input', () => {
+                rocket.classList.add('is-typing');
+                clearTimeout(typingTimeout);
+                typingTimeout = setTimeout(() => rocket.classList.remove('is-typing'), 400);
+            });
+        }
     }
 
 // hamburger / mobile slide-nav (tablet + phone)
