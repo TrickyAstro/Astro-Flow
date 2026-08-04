@@ -44,6 +44,11 @@ document.addEventListener('DOMContentLoaded', () => {
         rootMargin: '0px 0px -20% 0px',
     });
 
+    revealOnScroll(Array.from(document.querySelectorAll('.work-card')), {
+        threshold: 0.2,
+        rootMargin: '0px 0px -10% 0px',
+    });
+
     const process = document.querySelector('.process');
     if (process) {
         const checkProcessReveal = () => {

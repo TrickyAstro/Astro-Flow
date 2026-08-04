@@ -4,7 +4,7 @@
     --black: #191716;
     --white: #FFFFFF;
     --gray: #89838A;
-    --error: #dd1d2d;
+    --error: #ff0015;
 }
 
 @property --gradient-angle {
@@ -44,10 +44,17 @@ html {
 }
 
 body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
     background-color: var(--black);
     color: var(--white);
     font-family: 'Exo 2', sans-serif;
     overflow-x: clip;
+}
+
+main {
+    flex: 1;
 }
 
 .starfield {
@@ -749,6 +756,121 @@ a.text-link {
 
 .text-link img {
     transform: translateY(2px);
+}
+
+/* ---------- Work page ---------- */
+.work-title {
+    max-width: 1600px;
+    margin: 40px auto 0;
+    padding: 10px 24px;
+}
+
+.work-title .eyebrow {
+    margin-bottom: 2px;
+}
+
+.work-title h4 {
+    margin-bottom: 5px;
+}
+
+.work-title p {
+    max-width: 600px;
+}
+
+.work-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(460px, 1fr));
+    gap: 40px;
+    max-width: 1600px;
+    margin: 60px auto;
+    padding: 0 24px;
+}
+
+.work-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 420px;
+    border-radius: 20px;
+    border: 3px solid var(--primary-color);
+    box-shadow: 0 0 10px var(--primary-color);
+    overflow: hidden;
+    opacity: 0;
+    translate: 0 40px;
+    transition: opacity 0.9s ease-out, translate 0.9s ease-out, transform 0.3s ease, box-shadow 0.3s ease;
+    will-change: opacity, translate;
+}
+
+.work-card.is-visible {
+    opacity: 1;
+    translate: 0 0;
+}
+
+.work-card:nth-child(1) { transition-delay: 0s, 0s, 0s, 0s; }
+.work-card:nth-child(2) { transition-delay: 0.2s, 0.2s, 0s, 0s; }
+.work-card:nth-child(3) { transition-delay: 0.4s, 0.4s, 0s, 0s; }
+
+@media (hover: hover) {
+    .work-card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 20px var(--primary-color);
+    }
+
+    .work-card-text {
+        transform: translateY(100%);
+    }
+
+    .work-card:hover .work-card-text {
+        transform: translateY(0);
+    }
+}
+
+.work-card-preview {
+    position: absolute;
+    inset: 0;
+}
+
+.work-card-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    display: block;
+}
+
+.work-card-text {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 24px;
+    background: linear-gradient(to top, color-mix(in srgb, var(--black) 92%, transparent) 55%, transparent);
+    transition: transform 0.35s ease;
+}
+
+.work-end {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: 1600px;
+    margin: 60px auto 72px;
+    padding: 0 24px;
+}
+
+.work-end h4 {
+    max-width: 600px;
+    margin-bottom: 40px;
+}
+
+.work-end .nrml-btn {
+    transform: scale(1.5);
+    transform-origin: left center;
 }
 
 /* ---------- About teaser ---------- */
@@ -1658,6 +1780,26 @@ footer {
     .footer-col a {
         font-size: 1.05rem;
     }
+
+    .work-title,
+    .work-grid,
+    .work-end {
+        max-width: 1800px;
+    }
+
+    .work-title h4,
+    .work-end h4 {
+        font-size: 56px;
+    }
+
+    .work-grid {
+        grid-template-columns: repeat(auto-fit, minmax(520px, 1fr));
+        gap: 56px;
+    }
+
+    .work-card {
+        height: 480px;
+    }
 }
 
 /* ---------- Tablet (max-width: 1280px) ---------- */
@@ -1867,6 +2009,18 @@ footer {
         flex-wrap: wrap;
         padding: 24px;
         gap: 30px;
+    }
+
+    .work-grid {
+        grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    }
+
+    .work-card {
+        height: 360px;
+    }
+
+    .work-end {
+        margin: 40px auto 51px;
     }
 }
 
@@ -2116,6 +2270,34 @@ footer {
 
     .socials img {
         height: 34px;
+    }
+
+    .work-title,
+    .work-grid,
+    .work-end {
+        padding: 0 20px;
+    }
+
+    .work-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        margin: 40px auto;
+    }
+
+    .work-card {
+        height: 320px;
+    }
+
+    .work-card-text {
+        padding: 16px;
+    }
+
+    .work-end {
+        margin: 30px auto 33px;
+    }
+
+    .work-end .nrml-btn {
+        transform: scale(1.15);
     }
 }
 
