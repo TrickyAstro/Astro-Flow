@@ -741,7 +741,7 @@ nav {
     font-size: 1.125rem;
 }
 
-a.text-link {
+.text-link {
     font-family: 'Exo 2', sans-serif;
     font-size: 1.25rem;
     font-weight: 700;
@@ -871,6 +871,328 @@ a.text-link {
 .work-end .nrml-btn {
     transform: scale(1.5);
     transform-origin: left center;
+}
+
+/* ---------- Services page ---------- */
+.services-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 700px;
+    margin: 60px auto 0;
+    padding: 0 24px;
+}
+
+.services-header h4 {
+    margin-bottom: 20px;
+}
+
+.services-header h6 {
+    font-family: 'Playfair', serif;
+}
+
+.services-header p:not(.eyebrow) {
+    max-width: 560px;
+}
+
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    justify-content: center;
+    gap: 32px;
+    max-width: 1600px;
+    margin: 60px auto;
+    padding: 0 40px;
+}
+
+.price-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: center;
+    min-width: 0;
+    gap: 6px;
+    padding: 32px 32px 12px 32px;
+    border-radius: 20px;
+    border: 3px solid var(--gray);
+    background-color: var(--black);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+@media (hover: hover) {
+    .price-card:hover {
+        transform: scale(1.05);
+        border-color: var(--primary-color);
+        box-shadow: 0 0 20px var(--primary-color);
+    }
+}
+
+.price-card-icon {
+    align-self: center;
+    width: 80%;
+    height: auto;
+    margin-bottom: 4px;
+}
+
+.price-card-number {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.price-card-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    overflow-wrap: break-word;
+}
+
+.price-card-label {
+    color: var(--gray);
+}
+
+.price-card-price {
+    font-weight: 700;
+}
+
+.price-card-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    width: 100%;
+    margin: 16px 0;
+}
+
+.price-card-divider {
+    display: block;
+    width: 100%;
+    height: 1px;
+    background-color: var(--gray);
+    opacity: 0.4;
+}
+
+.price-card-list {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    text-align: left;
+    width: 100%;
+    margin: 16px 0 24px 0;
+    gap: 8px;
+    list-style: none;
+    font-family: 'Playfair', serif;
+    font-size: 1.125rem;
+}
+
+.price-card-list li {
+    padding-left: 20px;
+    position: relative;
+}
+
+.price-card-list li::before {
+    content: "\2726";
+    position: absolute;
+    left: 0;
+    color: var(--primary-color);
+}
+
+.price-card .text-link {
+    margin-top: auto;
+    min-height: 3em;
+    line-height: 1.2;
+    text-align: center;
+}
+
+.services-cta {
+    display: flex;
+    justify-content: center;
+    background-color: var(--white);
+    color: var(--black);
+    margin: 60px 0;
+    padding: 0px 60px;
+    align-items: center;
+    gap: 40px;
+}
+
+.section-heading.first {
+    margin-top: 0px;
+    margin-bottom: 40px;
+}
+
+.services-cta-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    height: 80%;
+    max-width: 700px;
+    overflow: wrap;
+}
+
+.services-cta.shuttle-cta {
+    gap: 50px;
+    margin-bottom: 0px;
+}
+
+.services-cta .shuttle {
+    margin: 105px 0;
+}
+
+.operate {
+    max-width: 1100px;
+    margin: 0 auto 60px;
+    padding: 0 clamp(12px, 3vw, 24px);
+}
+
+.operate-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 640px;
+    margin: 0 auto;
+}
+
+.operate-header h4 {
+    margin-bottom: 16px;
+}
+
+.operate-header h6 {
+    font-family: 'Playfair', serif;
+    max-width: 560px;
+}
+
+.operate-path {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin-top: clamp(36px, 6vw, 70px);
+    padding: 20px 0;
+}
+
+.operate-path::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 2px;
+    transform: translateX(-50%);
+    background: repeating-linear-gradient(
+        to bottom,
+        var(--primary-color) 0 10px,
+        transparent 10px 22px
+    );
+    opacity: 0.6;
+}
+
+.operate-step {
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-height: clamp(110px, 17vw, 170px);
+}
+
+.operate-step:nth-child(odd) .operate-card {
+    margin-right: auto;
+}
+
+.operate-step:nth-child(even) .operate-card {
+    margin-left: auto;
+}
+
+.operate-marker {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: clamp(34px, 6vw, 64px);
+    height: clamp(34px, 6vw, 64px);
+    border-radius: 50%;
+    background-color: var(--black);
+    border: 3px solid var(--secondary-color);
+    color: var(--secondary-color);
+    font-family: 'Exo 2', sans-serif;
+    font-weight: 700;
+    font-size: clamp(0.7rem, 1.7vw, 1.25rem);
+    box-shadow: 0 0 18px rgba(99, 210, 255, 0.45);
+    z-index: 2;
+}
+
+.operate-card {
+    position: relative;
+    width: calc(50% - clamp(12px, 5vw, 70px));
+    min-height: clamp(140px, 21vw, 220px);
+    display: flex;
+    flex-direction: column;
+    gap: clamp(6px, 1.2vw, 12px);
+    padding: clamp(12px, 2.2vw, 24px) clamp(12px, 2.6vw, 28px);
+    border-radius: clamp(10px, 1.8vw, 20px);
+    border: 3px solid var(--gray);
+    background-color: var(--black);
+}
+
+.operate-card-top {
+    display: flex;
+    align-items: center;
+    gap: clamp(8px, 1.6vw, 16px);
+}
+
+.operate-icon-slot {
+    --icon-h: clamp(100px, 20vw, 203px);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: clamp(30px, 6vw, 62px);
+    height: clamp(30px, 6vw, 62px);
+    flex-shrink: 0;
+}
+
+.operate-icon-slot img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: auto;
+    height: var(--icon-h);
+    transform: translate(-50%, -50%);
+}
+
+/* These icons' artwork isn't centered in their own viewBox, so nudge
+   them to line up visually with the ones that are. Offsets are
+   proportional to --icon-h so they stay correct at every size. */
+.operate-icon-slot img[src$="road.svg"] {
+    transform: translate(calc(-50% - var(--icon-h) * 0.0764), -50%);
+}
+
+.operate-icon-slot img[src$="build.svg"] {
+    transform: translate(calc(-50% + var(--icon-h) * 0.0493), -50%);
+}
+
+.operate-icon-slot img[src$="review.svg"] {
+    transform: translate(calc(-50% - var(--icon-h) * 0.0714), -50%);
+}
+
+.operate-card h5 {
+    font-family: 'Playfair', serif;
+    font-size: clamp(0.85rem, 4vw, 2rem);
+}
+
+.operate-card p {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    color: var(--white);
+    font-size: clamp(0.7rem, 3vw, 1.125rem);
 }
 
 /* ---------- About teaser ---------- */
@@ -1053,6 +1375,10 @@ a.nrml-btn.light:active {
         linear-gradient(transparent, transparent) padding-box,
         linear-gradient(to right, var(--primary-color), var(--secondary-color)) border-box;
     transition: background 0.3s ease;
+}
+
+.services-cta .nrml-btn.light {
+    transform: none;
 }
 
 /* ---------- Footer ---------- */
@@ -1708,7 +2034,7 @@ footer {
         font-size: 1.3rem;
     }
 
-    a.text-link {
+    .text-link {
         font-size: 1.5rem;
         gap: 12px;
     }
@@ -2022,6 +2348,36 @@ footer {
     .work-end {
         margin: 40px auto 51px;
     }
+
+    .operate {
+        max-width: 100%;
+    }
+
+    /* Tablet uses a 3-per-row (3-2) layout; switch to flex so the
+       odd 5th card centers itself on its own row instead of
+       sticking to the grid's left column. */
+    .pricing-grid {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 0 clamp(24px, 65px - 4.5vw, 56px);
+    }
+
+    .price-card {
+        flex: 0 0 calc((100% - 64px) / 3);
+    }
+
+    /* Give the CTA row breathing room top and bottom — the base
+       rule only pads left/right, which is fine on large screens
+       where the tall image sets the row's height, but at tablet
+       widths the wrapped text can become the tallest child and
+       ends up flush against the container edge without this. */
+    .services-cta {
+        padding: clamp(24px, 4vw, 40px) clamp(28px, 6vw, 40px);
+    }
+
+    .services-cta-img {
+        max-width: 320px;
+    }
 }
 
 /* ---------- Phone (max-width: 600px) ----------- */
@@ -2207,7 +2563,7 @@ footer {
         font-size: 18px;
     }
 
-    a.text-link {
+    .text-link {
         font-size: 1.1rem;
     }
 
@@ -2298,6 +2654,43 @@ footer {
 
     .work-end .nrml-btn {
         transform: scale(1.15);
+    }
+
+    .services-header {
+        padding: 0 20px;
+    }
+
+    .pricing-grid {
+        gap: 24px;
+        margin: 40px auto;
+    }
+
+    /* Phone drops back to a 2-per-row (2-2-1) layout — 3 per row
+       gets too narrow to read comfortably at this width. */
+    .price-card {
+        flex: 0 0 calc((100% - 24px) / 2);
+    }
+
+    .services-cta {
+        flex-direction: column;
+        gap: 16px;
+        padding: 28px 32px;
+    }
+
+    .services-cta-img {
+        max-width: 260px;
+    }
+
+    .services-cta .shuttle {
+        margin: 0;
+    }
+
+    .operate {
+        margin-bottom: 80px;
+    }
+
+    .operate-header h6 {
+        max-width: 100%;
     }
 }
 
