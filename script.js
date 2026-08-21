@@ -49,6 +49,11 @@ document.addEventListener('DOMContentLoaded', () => {
         rootMargin: '0px 0px -10% 0px',
     });
 
+    revealOnScroll(Array.from(document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale')), {
+        threshold: 0.2,
+        rootMargin: '0px 0px -10% 0px',
+    });
+
     const process = document.querySelector('.process');
     if (process) {
         const checkProcessReveal = () => {
@@ -204,6 +209,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') closeMenu();
+        });
+    }
+
+    // hotspot dots: tap to open/close on touch devices, hover on desktop
+    const hotspots = document.querySelectorAll('.hotspot');
+    if (hotspots.length && window.matchMedia('(hover: none)').matches) {
+        hotspots.forEach((hotspot) => {
+            hotspot.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const wasOpen = hotspot.classList.contains('is-open');
+                hotspots.forEach((h) => h.classList.remove('is-open'));
+                if (!wasOpen) hotspot.classList.add('is-open');
+            });
+        });
+
+        document.addEventListener('click', () => {
+            hotspots.forEach((h) => h.classList.remove('is-open'));
         });
     }
 });
