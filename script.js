@@ -45,13 +45,23 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     revealOnScroll(Array.from(document.querySelectorAll('.work-card')), {
-        threshold: 0.2,
-        rootMargin: '0px 0px -10% 0px',
+        threshold: 0.1,
+        rootMargin: '0px 0px 0px 0px',
     });
 
     revealOnScroll(Array.from(document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale')), {
         threshold: 0.2,
         rootMargin: '0px 0px -10% 0px',
+    });
+
+    document.querySelectorAll('.work-card').forEach((card) => {
+        const link = card.querySelector('.text-link');
+        if (!link) return;
+        card.classList.add('is-clickable');
+        card.addEventListener('click', (e) => {
+            if (e.target.closest('a')) return;
+            link.click();
+        });
     });
 
     const process = document.querySelector('.process');

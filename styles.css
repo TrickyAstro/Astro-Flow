@@ -798,8 +798,12 @@ nav {
     overflow: hidden;
     opacity: 0;
     translate: 0 40px;
-    transition: opacity 0.9s ease-out, translate 0.9s ease-out, transform 0.3s ease, box-shadow 0.3s ease;
+    transition: opacity 0.5s ease-out, translate 0.5s ease-out, transform 0.3s ease, box-shadow 0.3s ease;
     will-change: opacity, translate;
+}
+
+.work-card.is-clickable {
+    cursor: pointer;
 }
 
 .work-card.is-visible {
@@ -2194,34 +2198,15 @@ footer {
     pointer-events: auto;
 }
 
-.hotspot-popup--edge-right {
-    left: auto;
-    right: 0;
-    translate: 0 6px;
-}
-
-.hotspot:hover .hotspot-popup--edge-right,
-.hotspot:focus-visible .hotspot-popup--edge-right,
-.hotspot.is-open .hotspot-popup--edge-right {
-    translate: 0 0;
-}
-
-.hotspot-popup--edge-right::after {
-    left: auto;
-    right: 8px;
-    translate: 0 0;
-}
-
 .hotspot-popup strong {
     display: block;
     margin-bottom: 12px;
     font-family: 'Exo 2', sans-serif;
-    font-size: clamp(16px, calc(16px + (100vw - 1280px) * 0.00625), 20px);
+    font-size: 20px;
     color: var(--primary-color);
 }
 
 .hotspot-popup p {
-    font-size: clamp(16px, calc(16px + (100vw - 1280px) * 0.003125), 18px);
     color: var(--white);
 }
 
@@ -2368,7 +2353,6 @@ footer {
 .reveal-scale {
     opacity: 0;
     transition: opacity 0.9s ease-out, translate 0.9s ease-out, scale 0.9s ease-out;
-    will-change: opacity, translate, scale;
 }
 
 .reveal {
@@ -3070,20 +3054,30 @@ footer {
     }
 
     .hotspot {
-        width: 20px;
-        height: 20px;
+        width: 23px;
+        height: 23px;
     }
 
     .hotspot-popup {
         max-width: min(300px, 85vw);
     }
 
-    .hotspot-popup strong {
-        font-size: 16px;
+    .hotspot-popup--edge-right {
+        left: auto;
+        right: 0;
+        translate: 0 6px;
     }
 
-    .hotspot-popup p {
-        font-size: 15px;
+    .hotspot:hover .hotspot-popup--edge-right,
+    .hotspot:focus-visible .hotspot-popup--edge-right,
+    .hotspot.is-open .hotspot-popup--edge-right {
+        translate: 0 0;
+    }
+
+    .hotspot-popup--edge-right::after {
+        left: auto;
+        right: 8px;
+        translate: 0 0;
     }
 
     .case-brief-divider {
@@ -3457,21 +3451,13 @@ footer {
     }
 
     .hotspot {
-        width: 16px;
-        height: 16px;
+        width: 20px;
+        height: 20px;
     }
 
     .hotspot-popup {
         max-width: min(200px, 82vw);
         padding: 12px 14px;
-    }
-
-    .hotspot-popup strong {
-        font-size: 15px;
-    }
-
-    .hotspot-popup p {
-        font-size: 14px;
     }
 
     .work-grid {
