@@ -2294,6 +2294,7 @@ footer {
 
 .font-sample-box {
     display: flex;
+    flex-direction: column;
     min-height: 438px;
     border: 1px solid var(--gray);
     border-radius: 16px;
@@ -2301,25 +2302,50 @@ footer {
     background-color: color-mix(in srgb, var(--white) 8%, transparent);
 }
 
-.font-sample {
-    flex: 1 1 0;
-    padding: 24px;
+.font-sample-title {
+    padding: 12px 24px;
 }
 
-.font-sample h5 {
-    font-size: clamp(20px, 1.6667vw, 32px);
+.font-sample-title h5 {
+    font-family: 'Exo 2', sans-serif;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+}
+
+.font-sample-title-divider {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0 24px;
+}
+
+.font-sample-title-divider-line {
+    flex: 1;
+    height: 1px;
+    background-color: var(--gray);
+}
+
+.font-sample-row {
+    display: flex;
+    flex: 1;
+}
+
+.font-sample {
+    flex: 1 1 0;
+    padding: 14px 24px;
 }
 
 .font-sample p {
-    font-size: clamp(16px, 1.0417vw, 18px);
+    font-size: clamp(14px, 0.9375vw, 16px);
 }
 
-.font-sample-inter h5,
+.font-sample-inter h6,
 .font-sample-inter p {
     font-family: 'Inter', sans-serif;
 }
 
-.font-sample-josefin h5,
+.font-sample-josefin h6,
 .font-sample-josefin p {
     font-family: 'Josefin Sans', sans-serif;
 }
@@ -3429,7 +3455,7 @@ footer {
         height: 300px;
     }
 
-    .font-sample-box {
+    .font-sample-row {
         flex-direction: column;
         height: auto;
     }
