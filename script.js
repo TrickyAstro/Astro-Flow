@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // hero scroll indicator: fades out permanently on first scroll
     const indicator = document.querySelector('.scroll-indicator');
     if (indicator) {
         const hideOnScroll = () => {
@@ -17,6 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
         window.addEventListener('scroll', hideOnScroll, { passive: true });
     }
 
+    // scroll-reveal: adds is-visible to elements as they enter the viewport
     const revealOnScroll = (elements, options = { threshold: 0.2 }) => {
         if (!elements.length) return;
 
@@ -54,6 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
         rootMargin: '0px 0px -10% 0px',
     });
 
+    // work cards: clicking anywhere on the card follows its "View Case Study" link
     document.querySelectorAll('.work-card').forEach((card) => {
         const link = card.querySelector('.text-link');
         if (!link) return;
@@ -64,6 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // process section: separate reveal check since it needs a custom trigger point
     const process = document.querySelector('.process');
     if (process) {
         const checkProcessReveal = () => {
@@ -78,6 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
         checkProcessReveal();
     }
 
+    // contact form: phone number auto-formatting
     const phoneField = document.getElementById('phone');
     if (phoneField) {
         phoneField.addEventListener('input', () => {
@@ -94,6 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // contact form: file upload label state
     const fileInput = document.getElementById('file-upload');
     if (fileInput) {
         fileInput.addEventListener('change', () => {
@@ -101,6 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // contact form: require at least one "looking for" checkbox
     const lookingForCheckboxes = document.querySelectorAll('input[name="looking_for"]');
     const lookingForAnchor = document.getElementById('looking-for-check');
     if (lookingForCheckboxes.length && lookingForAnchor) {
@@ -112,6 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
         updateLookingForValidity();
     }
 
+    // contact form: comments character counter
     const commentsField = document.getElementById('comments');
     const charCount = document.getElementById('comments-char-count');
     if (commentsField && charCount) {
@@ -123,6 +131,7 @@ document.addEventListener('DOMContentLoaded', () => {
         updateCharCount();
     }
 
+    // contact form: submit handling + rocket launch/typing animation triggers
     const contactForm = document.getElementById('contact-form');
     if (contactForm) {
         const submitBtn = contactForm.querySelector('button[type="submit"]');
@@ -183,7 +192,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-// hamburger / mobile slide-nav (tablet + phone)
+    // hamburger / mobile slide-nav (tablet + phone)
     const hamburger = document.querySelector('.hamburger');
     const mobileNav = document.querySelector('.mobile-nav');
     const mobileNavOverlay = document.querySelector('.mobile-nav-overlay');
