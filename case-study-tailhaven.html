@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" type="image/png" href="Images/logo_fav.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Caveat+Brush&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+<title>TailHaven Case Study | AstroFlow</title>
+</head>
+
+<body>
+
+    <svg class="starfield" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
+      <defs>
+        <filter id="circleGlow" x="-200%" y="-200%" width="500%" height="500%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blurred"/>
+          <feDropShadow in="blurred" dx="0" dy="0" stdDeviation="15" flood-color="#ffffff" flood-opacity="0.5"/>
+        </filter>
+        <symbol id="star4" viewBox="-50 -50 100 100" overflow="visible">
+          <circle cx="0" cy="0" r="15" fill="white" filter="url(#circleGlow)"/>
+        </symbol>
+        <filter id="starGlow" x="-60%" y="-60%" width="220%" height="220%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="0.6" result="blur"/>
+          <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
+        <filter id="planetBackdropColor" color-interpolation-filters="sRGB">
+          <feFlood flood-color="#191716" result="flood"/>
+          <feComposite in="flood" in2="SourceGraphic" operator="in"/>
+        </filter>
+      </defs>
+      <g filter="url(#starGlow)">
+        <g class="star-layer" data-speed="0.06">
+          <use href="#star4" width="2.4" height="2.4" transform="translate(40,120) rotate(10) scale(6.72)" opacity="0.45"><animate attributeName="opacity" values="0.45;0.07;0.45" dur="2.8s" begin="0.2s" repeatCount="indefinite"/></use>
+          <use href="#star4" width="2.4" height="2.4" transform="translate(180,60) rotate(25) scale(7.19)" opacity="0.55"><animate attributeName="opacity" values="0.55;0.08;0.55" dur="3.4s" begin="1.5s" repeatCount="indefinite"/></use>
+          <use href="#star4" width="2.4" height="2.4" transform="translate(310,220) rotate(40) scale(6.85)" opacity="0.4"><animate attributeName="opacity" values="0.4;0.06;0.4" dur="4.1s" begin="3.0s" repeatCount="indefinite"/></use>
+          <use href="#star4" width="2.4" height="2.4" transform="translate(460,40) rotate(55) scale(7.33)" opacity="0.5"><animate attributeName="opacity" values="0.5;0.08;0.5" dur="3.7s" begin="4.5s" repeatCount="indefinite"/></use>
+          <use href="#star4" width="2.4" height="2.4" transform="translate(590,310) rotate(70) scale(6.99)" opacity="0.6"><animate attributeName="opacity" values="0.6;0.09;0.6" dur="2.6s" begin="0.8s" repeatCount="indefinite"/></use>
+          <use href="#star4" width="2.4" height="2.4" transform="translate(720,90) rotate(85) scale(6.79)" opacity="0.42"><animate attributeName="opacity" values="0.42;0.06;0.42" dur="4.5s" begin="2.2s" repeatCount="indefinite"/></use>
+          <use href="#star4" width="2.4" height="2.4" transform="translate(850,260) rotate(5) scale(7.26)" opacity="0.48"><animate attributeName="opacity" values="0.48;0.07;0.48" dur="3.2s" begin="5.1s" repeatCount="indefinite"/></use>
+          <use href="#star4" width="2.4" height="2.4" transform="translate(980,50) rotate(20) scale(6.92)" opacity="0.52"><animate attributeName="opacity" values="0.52;0.08;0.52" dur="3.9s" begin="3.7s" repeatCount="indefinite"/></use>
+          <use href="#star4" width="2.4" height="2.4" transform="translate(1110,340) rotate(35) scale(7.39)" opacity="0.38"><animate attributeName="opacity" values="0.38;0.06;0.38" dur="2.9s" begin="1.1s" repeatCount="indefinite"/></use>
+          <use href="#star4" width="2.4" height="2.4" transform="translate(1240,120) rotate(50) scale(7.06)" opacity="0.58"><animate attributeName="opacity" values="0.58;0.09;0.58" dur="4.3s" begin="4.9s" repeatCount="indefinite"/></use>
+          <use href="#star4" width="2.4" height="2.4" transform="translate(1360,280) rotate(65) scale(6.65)" opacity="0.44"><animate attributeName="opacity" values="0.44;0.07;0.44" dur="3.6s" begin="0.5s" repeatCount="indefinite"/></use>
+          <use href="#star4" width="2.4" height="2.4" transform="translate(90,420) rotate(80) scale(7.12)" opacity="0.5"><animate attributeName="opacity" values="0.5;0.08;0.5" dur="2.7s" begin="2.8s" repeatCount="indefinite"/></use>
+          <use href="#star4" width="2.4" height="2.4" transform="translate(230,480) rotate(12) scale(7.46)" opacity="0.46"><animate attributeName="opacity" values="0.46;0.07;0.46" dur="4.0s" begin="5.5s" repeatCount="indefinite"/></use>
+          <use href="#star4" width="2.4" height="2.4" transform="translate(380,560) rotate(27) scale(6.85)" opacity="0.55"><animate attributeName="opacity" values="0.55;0.08;0.55" dur="3.3s" begin="1.8s" repeatCount="indefinite"/></use>
+          <use href="#star4" width="2.4" height="2.4" transform="translate(520,610) rotate(42) scale(7.06)" opacity="0.4"><animate attributeName="opacity" values="0.4;0.06;0.4" dur="4.8s" begin="3.4s" repeatCount="indefinite"/></use>
+          <use href="#star4" width="2.4" height="2.4" transform="translate(650,470) rotate(57) scale(6.72)" opacity="0.5"><animate attributeName="opacity" values="0.5;0.08;0.5" dur="2.5s" begin="0.9s" repeatCount="indefinite"/></use>
+          <use href="#star4" width="2.4" height="2.4" transform="translate(790,540) rotate(72) scale(7.26)" opacity="0.42"><animate attributeName="opacity" values="0.42;0.06;0.42" dur="3.8s" begin="4.2s" repeatCount="indefinite"/></use>
+          <use href="#star4" width="2.4" height="2.4" transform="translate(920,600) rotate(87) scale(6.92)" opacity="0.6"><animate attributeName="opacity" values="0.6;0.09;0.6" dur="4.2s" begin="2.5s" repeatCount="indefinite"/></use>
+          <use href="#star4" width="2.4" height="2.4" transform="translate(1050,460) rotate(18) scale(7.33)" opacity="0.48"><animate attributeName="opacity" values="0.48;0.07;0.48" dur="3.0s" begin="5.8s" repeatCount="indefinite"/></use>
+          <use href="#star4" width="2.4" height="2.4" transform="translate(1180,520) rotate(33) scale(6.99)" opacity="0.44"><animate attributeName="opacity" values="0.44;0.07;0.44" dur="4.6s" begin="1.3s" repeatCount="indefinite"/></use>
+          <use href="#star4" width="2.4" height="2.4" transform="translate(1310,580) rotate(48) scale(6.79)" opacity="0.52"><animate attributeName="opacity" values="0.52;0.08;0.52" dur="2.9s" begin="3.9s" repeatCount="indefinite"/></use>
+          <use href="#star4" width="2.4" height="2.4" transform="translate(150,720) rotate(63) scale(7.19)" opacity="0.38"><animate attributeName="opacity" values="0.38;0.06;0.38" dur="3.5s" begin="0.4s" repeatCount="indefinite"/></use>
+          <use href="#star4" width="2.4" height="2.4" transform="translate(400,780) rotate(78) scale(7.06)" opacity="0.56"><animate attributeName="opacity" values="0.56;0.08;0.56" dur="4.4s" begin="2.1s" repeatCount="indefinite"/></use>
+          <use href="#star4" width="2.4" height="2.4" transform="translate(700,750) rotate(8) scale(6.85)" opacity="0.46"><animate attributeName="opacity" values="0.46;0.07;0.46" dur="3.1s" begin="4.7s" repeatCount="indefinite"/></use>
+          <use href="#star4" width="2.4" height="2.4" transform="translate(1000,800) rotate(22) scale(7.12)" opacity="0.5"><animate attributeName="opacity" values="0.5;0.08;0.5" dur="3.9s" begin="1.6s" repeatCount="indefinite"/></use>
+        </g>
+        <g class="star-layer" data-speed="0.16">
+          <use href="#star4" width="2.4" height="2.4" transform="translate(100,150) rotate(20) scale(7.66)" opacity="0.6"><animate attributeName="opacity" values="0.6;0.09;0.6" dur="3.0s" begin="0.5s" repeatCount="indefinite"/></use>
+          <use href="#star4" width="2.4" height="2.4" transform="translate(300,80) rotate(50) scale(8.0)" opacity="0.65"><animate attributeName="opacity" values="0.65;0.1;0.65" dur="3.6s" begin="2.0s" repeatCount="indefinite"/></use>
+          <use href="#star4" width="2.4" height="2.4" transform="translate(500,200) rotate(80) scale(7.87)" opacity="0.55"><animate attributeName="opacity" values="0.55;0.08;0.55" dur="4.2s" begin="3.5s" repeatCount="indefinite"/></use>
+          <use href="#star4" width="2.4" height="2.4" transform="translate(700,60) rotate(10) scale(8.2)" opacity="0.7"><animate attributeName="opacity" values="0.7;0.1;0.7" dur="2.8s" begin="1.0s" repeatCount="indefinite"/></use>
+          <use href="#star4" width="2.4" height="2.4" transform="translate(900,180) rotate(40) scale(7.73)" opacity="0.6"><animate attributeName="opacity" values="0.6;0.09;0.6" dur="3.9s" begin="4.5s" repeatCount="indefinite"/></use>
+          <use href="#star4" width="2.4" height="2.4" transform="translate(1100,90) rotate(70) scale(8.07)" opacity="0.68"><animate attributeName="opacity" values="0.68;0.1;0.68" dur="3.3s" begin="0.3s" repeatCount="indefinite"/></use>
+          <use href="#star4" width="2.4" height="2.4" transform="translate(1300,220) rotate(100) scale(7.93)" opacity="0.58"><animate attributeName="opacity" values="0.58;0.09;0.58" dur="4.5s" begin="2.8s" repeatCount="indefinite"/></use>
+          <use href="#star4" width="2.4" height="2.4" transform="translate(200,350) rotate(25) scale(8.27)" opacity="0.72"><animate attributeName="opacity" values="0.72;0.11;0.72" dur="3.1s" begin="5.0s" repeatCount="indefinite"/></use>
+          <use href="#star4" width="2.4" height="2.4" transform="translate(450,420) rotate(55) scale(7.8)" opacity="0.62"><animate attributeName="opacity" values="0.62;0.09;0.62" dur="3.7s" begin="1.5s" repeatCount="indefinite"/></use>
+          <use href="#star4" width="2.4" height="2.4" transform="translate(650,380) rotate(85) scale(8.14)" opacity="0.66"><animate attributeName="opacity" values="0.66;0.1;0.66" dur="4.0s" begin="3.2s" repeatCount="indefinite"/></use>
+          <use href="#star4" width="2.4" height="2.4" transform="translate(850,450) rotate(15) scale(7.66)" opacity="0.56"><animate attributeName="opacity" values="0.56;0.08;0.56" dur="2.9s" begin="0.8s" repeatCount="indefinite"/></use>
+          <use href="#star4" width="2.4" height="2.4" transform="translate(1050,400) rotate(45) scale(8.0)" opacity="0.7"><animate attributeName="opacity" values="0.7;0.1;0.7" dur="3.5s" begin="4.0s" repeatCount="indefinite"/></use>
+          <use href="#star4" width="2.4" height="2.4" transform="translate(1250,460) rotate(75) scale(7.87)" opacity="0.6"><animate attributeName="opacity" values="0.6;0.09;0.6" dur="4.3s" begin="2.2s" repeatCount="indefinite"/></use>
+          <use href="#star4" width="2.4" height="2.4" transform="translate(350,650) rotate(105) scale(8.2)" opacity="0.64"><animate attributeName="opacity" values="0.64;0.1;0.64" dur="3.2s" begin="5.3s" repeatCount="indefinite"/></use>
+          <use href="#star4" width="2.4" height="2.4" transform="translate(900,700) rotate(30) scale(7.93)" opacity="0.68"><animate attributeName="opacity" values="0.68;0.1;0.68" dur="3.8s" begin="1.8s" repeatCount="indefinite"/></use>
+        </g>
+        <g class="star-layer" data-speed="0.32">
+          <use href="#star4" width="2.4" height="2.4" transform="translate(200,250) rotate(15) scale(8.68)" opacity="0.85"><animate attributeName="opacity" values="0.85;0.13;0.85" dur="3.5s" begin="0.6s" repeatCount="indefinite"/></use>
+          <use href="#star4" width="2.4" height="2.4" transform="translate(500,150) rotate(45) scale(9.22)" opacity="0.9"><animate attributeName="opacity" values="0.9;0.14;0.9" dur="4.0s" begin="2.5s" repeatCount="indefinite"/></use>
+          <use href="#star4" width="2.4" height="2.4" transform="translate(800,300) rotate(75) scale(8.47)" opacity="0.8"><animate attributeName="opacity" values="0.8;0.12;0.8" dur="3.2s" begin="4.0s" repeatCount="indefinite"/></use>
+          <use href="#star4" width="2.4" height="2.4" transform="translate(1100,180) rotate(105) scale(9.49)" opacity="0.95"><animate attributeName="opacity" values="0.95;0.14;0.95" dur="4.5s" begin="1.2s" repeatCount="indefinite"/></use>
+          <use href="#star4" width="2.4" height="2.4" transform="translate(350,500) rotate(30) scale(8.88)" opacity="0.82"><animate attributeName="opacity" values="0.82;0.12;0.82" dur="3.8s" begin="3.3s" repeatCount="indefinite"/></use>
+          <use href="#star4" width="2.4" height="2.4" transform="translate(700,550) rotate(60) scale(8.61)" opacity="0.88"><animate attributeName="opacity" values="0.88;0.13;0.88" dur="4.2s" begin="0.4s" repeatCount="indefinite"/></use>
+          <use href="#star4" width="2.4" height="2.4" transform="translate(1000,480) rotate(90) scale(9.35)" opacity="0.78"><animate attributeName="opacity" values="0.78;0.12;0.78" dur="3.0s" begin="2.0s" repeatCount="indefinite"/></use>
+          <use href="#star4" width="2.4" height="2.4" transform="translate(1250,600) rotate(120) scale(9.01)" opacity="0.92"><animate attributeName="opacity" values="0.92;0.14;0.92" dur="3.9s" begin="4.8s" repeatCount="indefinite"/></use>
+        </g>
+      </g>
+    </svg>
+
+    <header>
+        <nav>
+            <a href="index.html">
+                <img src="Images/Logo.svg" id="logo" alt="astroflow logo" />
+            </a>
+            <a href="index.html" id="name">AstroFlow</a>
+            <div class="nav-links">
+                <a href="work.html">Work</a>
+                <a href="services.html">Services</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <button class="hamburger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <div class="mobile-nav-overlay"></div>
+    <nav class="mobile-nav" id="mobile-nav">
+        <button class="mobile-nav-close" type="button" aria-label="Close menu">
+            <span></span>
+            <span></span>
+        </button>
+        <a href="work.html">Work</a>
+        <a href="services.html">Services</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <main>
+        <a href="work.html" class="case-back text-link">&larr; Back to Work</a>
+
+        <section class="case-hero">
+            <div class="case-hero-content case-panel reveal">
+                <p class="eyebrow">CASE STUDY <img src="Images/hr_star.svg" class="eyebrow-star" alt="" /></p>
+                <h4>Reimagining Pet Adoption</h4>
+                <p class="case-summary">A distinct and memorable website design for a pet adoption organization, built to make pet adoption a fun and engaging experience.</p>
+
+                <div class="case-meta">
+                    <div class="case-meta-item">
+                        <h6>Timeframe</h6>
+                        <h5>4 Weeks</h5>
+                    </div>
+                </div>
+
+                <div class="case-lists">
+                    <div class="case-list-group">
+                        <h6 class="case-list-title">Pain Points</h6>
+                        <ul class="case-list">
+                            <li>Establishing a Brand</li>
+                            <li>Accessibility</li>
+                            <li>Ease of Use</li>
+                        </ul>
+                    </div>
+
+                    <div class="case-list-group">
+                        <h6 class="case-list-title">Solutions</h6>
+                        <ul class="case-list">
+                            <li>Unique Visual Identity</li>
+                            <li>Accessible Design</li>
+                            <li>Streamlined User Experience</li>
+                        </ul>
+                    </div>
+
+                    <div class="case-list-group">
+                        <h6 class="case-list-title">Services</h6>
+                        <ul class="case-list">
+                            <li>Research</li>
+                            <li>Wireframing</li>
+                            <li>UI Design</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="case-hero-image case-hero-image--overflow reveal-right">
+                <img src="Images/pet_adoption_device.svg" alt="Pet adoption website, desktop view" />
+            </div>
+        </section>
+
+        <div class="section-heading case-divider">
+            <img src="Images/hr_star.svg" class="divider-star" alt="" />
+            <span class="heading-line"></span>
+            <img src="Images/hr_star.svg" class="divider-star" alt="" />
+        </div>
+
+        <section class="case-client">
+            <div class="case-client-logo-box reveal-left">
+                <img src="Images/pet_adoption_logo.svg" alt="Pet Adoption logo" class="case-client-logo" />
+            </div>
+            <div class="case-panel reveal">
+                <p class="eyebrow">THE CLIENT <img src="Images/hr_star.svg" class="eyebrow-star" alt="" /></p>
+                <h4>TailHaven</h4>
+                <p class="case-client-text">TailHaven is a pet adoption organization dedicated to finding loving homes for shelter animals. They aim to reduce pet homelessness and promote responsible pet ownership.</p>
+
+                <div class="case-meta">
+                    <div class="case-meta-item">
+                        <h6>Location</h6>
+                        <h5>N/A (Not A Real Business)</h5>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="case-client-boxes">
+            <div class="case-panel case-box reveal-scale">
+                <h6>Launch Plan</h6>
+                <p>Nebula</p>
+            </div>
+            <div class="case-panel case-box reveal-scale">
+                <h6>Project Type</h6>
+                <p>Updated Website</p>
+            </div>
+            <div class="case-panel case-box reveal-scale">
+                <h6>Industry</h6>
+                <p>Animal Shelter</p>
+            </div>
+        </section>
+
+        <div class="section-heading case-divider">
+            <img src="Images/hr_star.svg" class="divider-star" alt="" />
+            <span class="heading-line"></span>
+            <img src="Images/hr_star.svg" class="divider-star" alt="" />
+        </div>
+
+        <section class="case-brief">
+            <div class="case-panel case-brief-panel">
+                <div class="case-brief-item reveal">
+                    <h5>The Goal</h5>
+                    <span class="step-underline"></span>
+                    <p>In order for this project to be successful, we needed to create a website that would effectively communicate TailHaven’s mission and values while providing an excellent user experience for their visitors. Adopting a pet is a big decision, and we wanted to make the process as smooth and informative as possible, so that users could easily and confidently make the decision that would benefit both the animal and their hopeful new family</p>
+                </div>
+
+                <div class="case-brief-divider">
+                    <span class="case-brief-divider-line"></span>
+                    <img src="Images/hr_star.svg" class="divider-star" alt="" />
+                    <span class="case-brief-divider-line"></span>
+                </div>
+
+                <div class="case-brief-item reveal">
+                    <h5>The Approach</h5>
+                    <span class="step-underline"></span>
+                    <p>When reviewing other animal shelter websites, we identified key elements that could enhance the user experience and better showcase the animals available for adoption. We focused on creating a clean, user-friendly interface that would allow visitors to easily browse available pets, learn about their stories, and find information on the adoption process in a way that felt natural and engaging.</p>
+                </div>
+
+                <div class="case-brief-divider">
+                    <span class="case-brief-divider-line"></span>
+                    <img src="Images/hr_star.svg" class="divider-star" alt="" />
+                    <span class="case-brief-divider-line"></span>
+                </div>
+
+                <div class="case-brief-item reveal">
+                    <h5>The Result</h5>
+                    <span class="step-underline"></span>
+                    <p>This new website has significantly improved the user experience for TailHaven’s visitors, making it easier for them to find information about available pets and the adoption process. The updated design has also helped to better showcase the animals and communicate the shelter’s mission and values. Overall, the results have been very positive, and have brought many animals into new homes.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-heading case-divider">
+            <img src="Images/hr_star.svg" class="divider-star" alt="" />
+            <span class="heading-line"></span>
+            <img src="Images/hr_star.svg" class="divider-star" alt="" />
+        </div>
+
+        <section class="case-hotspots">
+            <div class="case-hotspots-header reveal-scale">
+                <p class="eyebrow">DESIGN DETAILS <img src="Images/hr_star.svg" class="eyebrow-star" alt="" /></p>
+                <h4>A closer look</h4>
+                <p class="case-hotspots-intro">Check out a couple of the pages made for this website. Hover over the dots below to see the thinking behind the layout choices and the things that make these pages unique.</p>
+            </div>
+
+            <div class="design-detail-grid">
+                <div class="design-detail-col reveal-left">
+                    <div class="color-swatch">
+                        <div class="swatch-60 tailhaven">
+                            <h5>Violet-Blue</h5>
+                        </div>
+                        <div class="swatch-stack">
+                            <div class="swatch-30 tailhaven">
+                                <h5>Magic Mint</h5>
+                            </div>
+                            <div class="swatch-10 tailhaven">
+                                <h5>Royal Gold</h5>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="design-detail-photo">
+                        <img src="Images/Tailhaven_example_1.svg" alt="TailHaven, full page detail" />
+
+                        <button class="hotspot" style="top: 10.4%; left: 60.2%;" aria-label="Design note: prayer list">
+                            <div class="hotspot-popup">
+                                <strong>Video Montage</strong>
+                                <p>TailHaven is primarliy there for the animals in its care. Everytime a potential adopter visits the site, they are greeted by a dynamic video montage showcasing the shelter's work and the animals available for adoption.</p>
+                            </div>
+                        </button>
+
+                        <button class="hotspot" style="top: 41.3%; left: 62.5%;" aria-label="Design note: border">
+                            <div class="hotspot-popup">
+                                <strong>Call to Action Boxes</strong>
+                                <p>In order to make the adoption process more engaging, we implemented prominent call to action boxes throughout the site, encouraging users to take the next step in adopting a pet.</p>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="design-detail-col reveal-right">
+                    <div class="design-detail-photo-split">
+                        <div class="design-detail-photo">
+                            <img src="Images/TailHaven_example_2.svg" alt="TailHaven, page detail" />
+
+                            <button class="hotspot" style="top: 42.6%; left: 28.1%;" aria-label="Design note: headline typography">
+                                <div class="hotspot-popup">
+                                    <strong>Information Box</strong>
+                                    <p>The necessary information about the shelter and its services is presented in a clear and accessible manner. We wanted to ensure that users could easily find what they were looking for, so we organized the content in a logical and user-friendly way.</p>
+                                </div>
+                            </button>
+                        </div>
+
+                        <div class="design-detail-photo">
+                            <img src="Images/Tailhaven_example_3.svg" alt="TailHaven, page detail" />
+
+                            <button class="hotspot" style="top: 58.7%; left: 34.8%;" aria-label="Design note: imagery">
+                                <div class="hotspot-popup">
+                                    <strong>Attribute Boxes</strong>
+                                    <p>We wanted to let a potential adopter quickly see the key characteristics and traits of each animal available for adoption, so we created distinct attribute boxes that highlight important details like age, breed, and personality.</p>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="font-sample-box">
+                        <div class="font-sample-title">
+                            <h5>Typography</h5>
+                            <p>Caveat Brush and Open Sans are the two typefaces used throughout the site: Caveat Brush gives a playful touch, while Open Sans provides a clean and readable foundation for body copy.</p>
+                        </div>
+
+                        <div class="font-sample-title-divider">
+                            <img src="Images/hr_star.svg" class="divider-star" alt="" />
+                            <span class="font-sample-title-divider-line"></span>
+                            <img src="Images/hr_star.svg" class="divider-star" alt="" />
+                        </div>
+
+                        <div class="font-sample-row">
+                        <div class="font-sample font-sample-caveat">
+                            <h6>Caveat Brush</h6>
+                            <span class="font-sample-divider"></span>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                        </div>
+
+                        <div class="font-sample-box-divider">
+                            <span class="font-sample-box-divider-line"></span>
+                            <img src="Images/hr_star.svg" class="divider-star" alt="" />
+                            <span class="font-sample-box-divider-line"></span>
+                        </div>
+
+                        <div class="font-sample font-sample-opensans">
+                            <h6>Open Sans</h6>
+                            <span class="font-sample-divider"></span>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-heading case-divider">
+            <img src="Images/hr_star.svg" class="divider-star" alt="" />
+            <span class="heading-line"></span>
+            <img src="Images/hr_star.svg" class="divider-star" alt="" />
+        </div>
+
+        <div class="work-end">
+            <h4>Ready to launch<br>your project?</h4>
+            <a href="contact.html" class="nrml-btn">Contact Us</a>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-brand">
+            <div class="socials">
+                <a href="#" aria-label="LinkedIn"><img src="Images/linkdin.svg" alt="" /></a>
+                <a href="#" aria-label="Facebook"><img src="Images/facebook.svg" alt="" /></a>
+            </div>
+        </div>
+
+        <div class="footer-cols">
+        <div class="footer-col">
+            <h4>Company</h4>
+            <a href="about.html">About Us</a>
+            <a href="work.html">Work</a>
+        </div>
+
+        <div class="footer-col">
+            <h4>Contact</h4>
+            <a href="mailto:Business@Astroflow.com">Business@Astroflow.com</a>
+            <a href="tel:3855826609">385-582-6609</a>
+        </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
