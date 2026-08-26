@@ -633,6 +633,7 @@ nav {
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: center;
     gap: 20px;
     width: 1152px;
     margin: 0 auto;
@@ -3694,6 +3695,14 @@ footer {
         max-width: 100%;
     }
 
+    .founder-text .eyebrow {
+        justify-content: center;
+    }
+
+    .founder-socials {
+        justify-content: center;
+    }
+
     .principles {
         margin: 40px auto;
     }
@@ -3716,6 +3725,7 @@ footer {
         flex-direction: row;
         width: 100%;
         max-width: 280px;
+        align-self: center;
     }
 
     .principles-divider-line {
