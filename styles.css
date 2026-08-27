@@ -1290,21 +1290,17 @@ nav {
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    width: 320px;
-    height: 320px;
+    width: 380px;
+    height: 380px;
     border-radius: 50%;
-    border: 2px dashed var(--gray);
+    overflow: hidden;
     background-color: color-mix(in srgb, var(--white) 6%, transparent);
-    text-align: center;
-    padding: 24px;
 }
 
-.founder-photo-label {
-    color: var(--gray);
-    font-family: 'Exo 2', sans-serif;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-size: 14px;
+.founder-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .founder-text {
@@ -3259,8 +3255,8 @@ footer {
     }
 
     .founder-photo {
-        width: 240px;
-        height: 240px;
+        width: 280px;
+        height: 280px;
     }
 
     .principles-grid {
@@ -3687,8 +3683,8 @@ footer {
     }
 
     .founder-photo {
-        width: 200px;
-        height: 200px;
+        width: 230px;
+        height: 230px;
     }
 
     .founder-text {
